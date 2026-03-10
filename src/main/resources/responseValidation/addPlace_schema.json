@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Add Place API Response",
+  "description": "Schema for validating the Add Place API response",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Status of the API response",
+      "enum": ["OK", "INVALID_REQUEST", "OVER_QUERY_LIMIT", "REQUEST_DENIED", "UNKNOWN_ERROR"]
+    },
+    "place_id": {
+      "type": "string",
+      "description": "Unique identifier for the created place",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "description": "Scope of the place (APP or GOOGLE_APPS)",
+      "enum": ["APP", "GOOGLE_APPS"]
+    },
+    "reference": {
+      "type": "string",
+      "description": "Reference string for the place",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "description": "ID of the created place",
+      "minLength": 1
+    }
+  },
+  "required": ["status", "place_id", "scope", "reference", "id"],
+  "additionalProperties": false
+}
+
